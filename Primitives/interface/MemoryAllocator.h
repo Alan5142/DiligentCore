@@ -40,6 +40,9 @@ DILIGENT_BEGIN_NAMESPACE(Diligent)
 /// Base interface for a raw memory allocator
 struct IMemoryAllocator
 {
+    /// Default virtual dtor, non virtual dtors are undefined behaviour
+    virtual ~IMemoryAllocator() = default;
+
     /// Allocates block of memory
     virtual void* Allocate(size_t Size, const Char* dbgDescription, const char* dbgFileName, const Int32 dbgLineNumber) = 0;
 
